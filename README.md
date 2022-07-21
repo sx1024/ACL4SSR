@@ -3,4 +3,4 @@
 源地址：
 #### https://github.com/ACL4SSR/ACL4SSR/tree/master/Clash/config
 
-做出修改，方便免流使用，国内不走直连，走国内节点，国外走国外节点。
+免流，国内自动选择国内节点，国外自动选择国外节点。
