@@ -1,0 +1,156 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: error
+ipv6: true
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  default-nameserver:
+    - 114.114.114.114
+    - 223.5.5.5
+  enhanced-mode: redir-host
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - 114.114.114.114
+    - 223.5.5.5
+
+proxies:
+  - name: "Hys-芬兰"
+    type: hysteria
+    server: 
+    port: 54000
+    auth_str: a
+    alpn: h3
+    protocol: udp
+    up: 25
+    down: 125
+    sni: wechat.com
+    skip-cert-verify: true
+    recv_window_conn: 19660800
+    recv_window: 78643200
+    disable_mtu_discovery: true
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - Hys-芬兰
+    use:
+      - jichang1
+
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 150
+    use:
+      - jichang1
+      
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+proxy-providers:
+  jichang1:
+    type: http
+    url: ""
+    interval: 21600
+    path: ./jichang1.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+      tolerance: 150
+
+
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.yaml"
+    path: ./ruleset/LocalAreaNetwork.yaml
+    interval: 86400
+
+  UnBan:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.yaml"
+    path: ./ruleset/UnBan.yaml
+    interval: 86400
+
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+    path: ./ruleset/GoogleCN.yaml
+    interval: 86400
+
+  SteamCN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/SteamCN.yaml"
+    path: ./ruleset/SteamCN.yaml
+    interval: 86400
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/Telegram.yaml"
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
+
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ProxyMedia.yaml"
+    path: ./ruleset/ProxyMedia.yaml
+    interval: 86400
+
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ProxyLite.yaml"
+    path: ./ruleset/ProxyLite.yaml
+    interval: 86400
+
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ChinaDomain.yaml"
+    path: ./ruleset/ChinaDomain.yaml
+    interval: 86400
+
+  ChinaCompanyIp:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ChinaCompanyIp.yaml"
+    path: ./ruleset/ChinaCompanyIp.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,UnBan,DIRECT
+  - RULE-SET,GoogleCN,DIRECT
+  - RULE-SET,SteamCN,DIRECT
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 漏网之鱼
