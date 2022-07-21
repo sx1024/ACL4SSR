@@ -21,7 +21,7 @@ dns:
 proxies:
   - name: "Hys-芬兰"
     type: hysteria
-    server: 
+    server:                #填写
     port: 54000
     auth_str: a
     alpn: h3
@@ -60,7 +60,7 @@ proxy-groups:
 proxy-providers:
   jichang1:
     type: http
-    url: ""
+    url: ""                    #填写
     interval: 21600
     path: ./jichang1.yaml
     health-check:
