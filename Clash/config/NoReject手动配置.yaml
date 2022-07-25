@@ -69,7 +69,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       tolerance: 150
 
-
 rule-providers:
   LocalAreaNetwork:
     type: http
