@@ -74,70 +74,70 @@ rule-providers:
   LocalAreaNetwork:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
     path: ./ruleset/LocalAreaNetwork.yaml
     interval: 86400
 
   UnBan:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
     path: ./ruleset/UnBan.yaml
     interval: 86400
 
   GoogleCN:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
     path: ./ruleset/GoogleCN.yaml
     interval: 86400
 
   SteamCN:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/SteamCN.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
     path: ./ruleset/SteamCN.yaml
     interval: 86400
 
   Microsoft:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/Microsoft.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
     path: ./ruleset/Microsoft.yaml
     interval: 86400
 
   Telegram:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/Ruleset/Telegram.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
     path: ./ruleset/Telegram.yaml
     interval: 86400
 
   ProxyMedia:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ProxyMedia.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
     path: ./ruleset/ProxyMedia.yaml
     interval: 86400
 
   ProxyLite:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ProxyLite.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyLite.yaml"
     path: ./ruleset/ProxyLite.yaml
     interval: 86400
 
   ChinaDomain:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ChinaDomain.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
     path: ./ruleset/ChinaDomain.yaml
     interval: 86400
 
   ChinaCompanyIp:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/blob/master/Clash/Providers/ChinaCompanyIp.yaml"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
     path: ./ruleset/ChinaCompanyIp.yaml
     interval: 86400
 
