@@ -18,29 +18,13 @@ dns:
     - 114.114.114.114
     - 223.5.5.5
 
-proxies:
-  - name: "Hys-芬兰"
-    type: hysteria
-    server:                #填写
-    port: 54000
-    auth_str: a
-    alpn: h3
-    protocol: udp
-    up: 25
-    down: 125
-    sni: wechat.com
-    skip-cert-verify: true
-    recv_window_conn: 19660800
-    recv_window: 78643200
-    disable_mtu_discovery: true
-
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
-      - Hys-芬兰
     use:
+      - zijian
       - jichang1
 
   - name: ♻️ 自动选择
@@ -50,7 +34,7 @@ proxy-groups:
     tolerance: 150
     use:
       - jichang1
-      
+
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -60,15 +44,22 @@ proxy-groups:
 proxy-providers:
   jichang1:
     type: http
-    url: ""                    #填写
+    url: ""                           #填写
     interval: 21600
     path: ./jichang1.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-      tolerance: 150
 
+  zijian:
+    type: file
+    path: ./zijian.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  
 rule-providers:
   LocalAreaNetwork:
     type: http
